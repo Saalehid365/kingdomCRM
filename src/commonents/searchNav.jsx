@@ -3,11 +3,11 @@ import { FaAngleDown, FaLanguage, FaSearch, FaSun } from "react-icons/fa";
 
 const SearchNav = () => {
   return (
-    <div className="bg-white w-full h-20 flex justify-evenly items-center border-b-2">
-      <div className="flex w-1/3 pl-12 items-center">
+    <div className="bg-white h-20 flex justify-center items-center border-b-2 ml-80">
+      <div className="flex w-1/3 pl-12 items-center ">
         <input
           placeholder="Search for anythin here..."
-          className="h-8 rounded-l-lg w-full bg-blue-100 text-base pl-4"
+          className="h-8 rounded-l-lg  bg-blue-100 text-base pl-4 w-2/3"
         ></input>
         <FaSearch className="bg-blue-100 h-8 rounded-r-lg pr-2 w-6" />
       </div>
@@ -21,7 +21,7 @@ const SearchNav = () => {
           <FaAngleDown />
         </button>
       </div>
-      <div className="w-1/3 flex flex-col items-end ">
+      <div className="w-1/3 flex flex-col items-end">
         <div className="flex items-center w-60 justify-center">
           <FaSun className="text-yellow-500 text-xl mr-2" />
           <p>Good Morning</p>

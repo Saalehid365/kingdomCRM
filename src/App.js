@@ -10,27 +10,30 @@ import GetTechHelp from "./pages/getTechHelp";
 import PriortyRepairs from "./pages/priortyRepairs";
 import Unrepairable from "./pages/unrepairable";
 import SearchNav from "./commonents/searchNav";
+import Addrepair from "./pages/addrepair";
 
 function App() {
   return (
     <div className="App">
       <Router>
         <div className="flex ">
-          <Menubar />
+          <Menubar className=" bottom-auto" />
           <div className="flex flex-col w-full">
             <SearchNav />
             <Routes>
-              <Route path="/dashboard" element={<Dashboard />} />
-              <Route path="/currentrepairs" element={<CurrentRepairs />} />
+              <Route path="dashboard" element={<Dashboard />} />
+              <Route path="currentrepairs" element={<CurrentRepairs />} />
+
+              <Route path="currentrepairs/addrepair" element={<Addrepair />} />
               <Route
                 path="/contactmanagement"
                 element={<ContactManagement />}
               />
-              <Route path="/chatwith" element={<ChatWith />} />
-              <Route path="/engineers" element={<Engineers />} />
-              <Route path="/gettechhelp" element={<GetTechHelp />} />
-              <Route path="/priortyrepairs" element={<PriortyRepairs />} />
-              <Route path="/unrepairable" element={<Unrepairable />} />
+              <Route path="chatwith" element={<ChatWith />} />
+              <Route path="engineers" element={<Engineers />} />
+              <Route path="gettechhelp" element={<GetTechHelp />} />
+              <Route path="priortyrepairs" element={<PriortyRepairs />} />
+              <Route path="unrepairable" element={<Unrepairable />} />
             </Routes>
           </div>
         </div>

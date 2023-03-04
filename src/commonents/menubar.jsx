@@ -24,7 +24,7 @@ const Menubar = () => {
   };
 
   return (
-    <div className="w-96 h-screen bg-slate-600">
+    <div className="w-1/5 h-full fixed bg-slate-600  ">
       <div className="flex items-center justify-evenly bg-gray-800 text-white h-20">
         <FaTools />
         <div>
@@ -67,7 +67,7 @@ const Menubar = () => {
           Dashboard
         </Link>
         <Link
-          to="currentRepairs"
+          to="currentrepairs"
           className=" h-16 hover:bg-cyan-600 flex items-center  w-full text-xl"
         >
           <FaCog className="ml-12 mr-6" />
