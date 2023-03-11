@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   FaArrowDown,
   FaFilter,
@@ -10,6 +10,8 @@ import {
   FaToolbox,
 } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import { collection, getDocs } from "firebase/firestore";
+import { db } from "../firebase-config";
 
 const CurrentRepairs = () => {
   const [toggle, setToggle] = useState(false);
@@ -18,108 +20,26 @@ const CurrentRepairs = () => {
     setToggle(!toggle);
   };
 
-  const appliances = [
-    {
-      jobnumber: "U45902",
-      status: "repair",
-      model: "KME761000M",
-      catergory: "Microwave",
-      brand: "AEG",
-      serial: "1345890",
-      location: "S17",
-      priorty: "5",
-      engineer: "Saaleh",
-      created: "date",
-      customer: "khadeejah",
-    },
-    {
-      jobnumber: "A119568",
-      status: "completed",
-      model: "FSK52710Z",
-      catergory: "Dishwasher",
-      brand: "Zanussi",
-      serial: "1345890",
-      location: "S1",
-      priorty: "1",
-      engineer: "Naeem",
-      created: "date",
-      customer: "khadeejah",
-    },
-    {
-      jobnumber: "U45102",
-      status: "repair",
-      model: "BPK351020M",
-      catergory: "Single Oven",
-      brand: "AEG",
-      serial: "1345890",
-      location: "S7",
-      priorty: "4",
-      engineer: "Shaheed",
-      created: "date",
-      customer: "khadeejah",
-    },
-    {
-      jobnumber: "A117543",
-      status: "repair",
-      model: "ZCV66050XA",
-      catergory: "Cooker",
-      brand: "AEG",
-      serial: "1345890",
-      location: "S23",
-      priorty: "3",
-      engineer: "Amjad",
-      created: "date",
-      customer: "khadeejah",
-    },
-    {
-      jobnumber: "A118621",
-      status: "repair",
-      model: "DCK5960HM",
-      catergory: "Hood",
-      brand: "AEG",
-      serial: "1345890",
-      location: "S86",
-      priorty: "2",
-      engineer: "Saaleh",
-      created: "date",
-      customer: "khadeejah",
-    },
-    {
-      jobnumber: "A11246",
-      status: "repair",
-      model: "DCK5960HM",
-      catergory: "Hood",
-      brand: "AEG",
-      serial: "1345890",
-      location: "S86",
-      priorty: "2",
-      engineer: "Saaleh",
-      created: "date",
-      customer: "khadeejah",
-    },
-    {
-      jobnumber: "A118621",
-      status: "repair",
-      model: "DCK5960HM",
-      catergory: "Dishwasher",
-      brand: "AEG",
-      serial: "1345890",
-      location: "S86",
-      priorty: "2",
-      engineer: "Saaleh",
-      created: "date",
-      customer: "khadeejah",
-    },
-  ];
+  const [repairs, setRepairs] = useState([]);
+  const repairsRef = collection(db, "repairs");
+
+  useEffect(() => {
+    const getRepairs = async () => {
+      const data = await getDocs(repairsRef);
+      setRepairs(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
+      console.log(data);
+    };
+    getRepairs();
+  }, []);
 
   return (
-    <div className="bg-gray-200 h-full ml-80 ">
+    <div className="bg-gray-200 h-screen ml-64 ">
       <div className=" flex justify-around">
         <div className="title w-1/3  h-40 mt-12">
           <div className="flex flex-col items-start justify-evenly h-full">
             <div className="flex items-center ">
               <p className="text-3xl mr-8">Current Repairs</p>
-              <p>(5678)</p>
+              <p className="text-bold text-gray-400">({repairs.length})</p>
             </div>
             <div className="flex items-center w-full ">
               <input
@@ -159,18 +79,18 @@ const CurrentRepairs = () => {
             <th>Created</th>
             <th>Edit</th>
           </tr>
-          {appliances?.map((listing, listingIndex) => (
+          {repairs?.map((listing, listingIndex) => (
             <tr
               key={listingIndex}
-              className="h-18 bg-gray-100 border-gray-300 border-2 text-sm "
+              className="h-18 bg-gray-100 border-gray-300 border-2 text-sm uppercase"
             >
-              <td>{listing.jobnumber}</td>
-              <td>{listing.model}</td>
+              <td className="uppercase">{listing.jobNumber}</td>
+              <td className="uppercase">{listing.model}</td>
               <td>{listing.catergory}</td>
-              <td className="rounded-lg h-8">{listing.location}</td>
+              <td className="uppercase">{listing.location}</td>
 
-              <td className="">
-                {listing.priorty <= 2 ? (
+              <td className="uppercase">
+                {listing.priorty === 1 ? (
                   <p className="bg bg-yellow-100 rounded-xl h-6 flex items-center justify-center font-bold text-xs">
                     low priorty
                   </p>
@@ -183,7 +103,7 @@ const CurrentRepairs = () => {
 
               <td>{listing.engineer}</td>
               <td className="">
-                {listing.status === "completed" ? (
+                {listing.status === "Completed" ? (
                   <div className="flex items-center justify-center relative">
                     <FaRegCheckCircle className="text-green-500 mr-4" />
                     <p>{listing.status}</p>
@@ -203,7 +123,9 @@ const CurrentRepairs = () => {
                           <p>Item is currently being repaired </p>
                         </div>
                         <div className="">
-                          <p>Completed:</p>
+                          <p className="text-green-600 font-bold underline">
+                            Completed:
+                          </p>
                           <p>
                             Item is completed and can be sent back to customer
                           </p>
@@ -215,11 +137,14 @@ const CurrentRepairs = () => {
                   <div className="flex items-center justify-center">
                     <FaToolbox className="text-red-500 mr-4" />
                     <p>{listing.status}</p>
-                    <FaInfoCircle className="ml-2" onClick={handleModal} />
+                    <FaInfoCircle
+                      className="ml-2 cursor-pointer"
+                      onClick={handleModal}
+                    />
                   </div>
                 )}
               </td>
-              <td>{listing.created}</td>
+              <td>{listing.status}</td>
               <td>
                 <div className="flex flex-col justify-evenly items-center">
                   <button className=" rounded-md mb-2 bg-green-400 text-white text-sm w-16 h-6 flex items-center justify-evenly mt-2">
@@ -235,8 +160,8 @@ const CurrentRepairs = () => {
           ))}
         </table>
       </div>
+      <div></div>
     </div>
   );
 };
-
 export default CurrentRepairs;

@@ -11,6 +11,7 @@ import PriortyRepairs from "./pages/priortyRepairs";
 import Unrepairable from "./pages/unrepairable";
 import SearchNav from "./commonents/searchNav";
 import Addrepair from "./pages/addrepair";
+import Loginpage from "./pages/loginpage";
 
 function App() {
   return (
@@ -21,6 +22,8 @@ function App() {
           <div className="flex flex-col w-full">
             <SearchNav />
             <Routes>
+              <Route path="/" element={<Loginpage />} />
+
               <Route path="dashboard" element={<Dashboard />} />
               <Route path="currentrepairs" element={<CurrentRepairs />} />
 

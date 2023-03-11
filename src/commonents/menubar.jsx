@@ -24,7 +24,7 @@ const Menubar = () => {
   };
 
   return (
-    <div className="w-1/5 h-full fixed bg-slate-600  ">
+    <div className="w-1/6 h-full fixed bg-slate-600  ">
       <div className="flex items-center justify-evenly bg-gray-800 text-white h-20">
         <FaTools />
         <div>
@@ -61,51 +61,51 @@ const Menubar = () => {
       <div className="flex flex-col justify-evenly items-start h-1/3 border-b-2 border-red text-gray-200 ">
         <Link
           to="dashboard"
-          className=" h-16 hover:bg-cyan-600 flex items-center  w-full text-xl"
+          className=" h-16 hover:bg-cyan-600 flex items-center  w-full text-lg"
         >
           <FaBorderAll className="ml-12 mr-6" />
           Dashboard
         </Link>
         <Link
           to="currentrepairs"
-          className=" h-16 hover:bg-cyan-600 flex items-center  w-full text-xl"
+          className=" h-16 hover:bg-cyan-600 flex items-center  w-full text-lg"
         >
           <FaCog className="ml-12 mr-6" />
           Current Repairs
         </Link>
         <Link
           to="priortyrepairs"
-          className=" h-16 hover:bg-cyan-600 flex items-center  w-full text-xl"
+          className=" h-16 hover:bg-cyan-600 flex items-center  w-full text-lg"
         >
           <FaExclamationTriangle className="ml-12 mr-6" />
           Priorty Repairs
         </Link>
         <Link
           to="dashboard"
-          className=" h-16 hover:bg-cyan-600 flex items-center  w-full text-xl"
+          className=" h-16 hover:bg-cyan-600 flex items-center  w-full text-lg"
         >
           <FaTrash className="ml-12 mr-6" />
           Unrepairable
         </Link>
         <Link
           to="dashboard"
-          className=" h-16 hover:bg-cyan-600 flex items-center  w-full text-xl"
+          className=" h-16 hover:bg-cyan-600 flex items-center  w-full text-lg"
         >
           <FaHouseDamage className="ml-12 mr-6" />
           Returns
         </Link>
       </div>
-      <div className="flex flex-col border-b-2 h-1/3 justify-evenly text-white">
+      <div className="flex flex-col border-b-2 h-1/3 justify-evenly text-white ">
         <Link
           to="contactmanagement"
-          className=" h-16 hover:bg-cyan-600 flex items-center  w-full text-xl"
+          className=" h-16 hover:bg-cyan-600 flex items-center  w-full text-lg"
         >
           <FaBlenderPhone className="ml-12 mr-6" />
           Contact Management
         </Link>
         <Link
           to="chatwithengineers"
-          className=" h-16 hover:bg-cyan-600 flex items-center  w-full text-xl"
+          className=" h-16 hover:bg-cyan-600 flex items-center  w-full text-lg"
         >
           <FaRocketchat className="ml-12 mr-6" />
           Chat with engineers
@@ -113,14 +113,14 @@ const Menubar = () => {
 
         <Link
           to="engineers"
-          className=" h-16 hover:bg-cyan-600 flex items-center  w-full text-xl"
+          className=" h-16 hover:bg-cyan-600 flex items-center  w-full text-lg"
         >
           <FaUsersCog className="ml-12 mr-6" />
           Engineers
         </Link>
         <Link
           to="gethelp"
-          className=" h-16 hover:bg-cyan-600 flex items-center  w-full text-xl"
+          className=" h-16 hover:bg-cyan-600 flex items-center  w-full text-lg"
         >
           <FaHandsHelping className="ml-12 mr-6" />
           Get tech help

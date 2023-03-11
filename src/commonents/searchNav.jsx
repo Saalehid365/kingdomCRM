@@ -2,8 +2,16 @@ import React from "react";
 import { FaAngleDown, FaLanguage, FaSearch, FaSun } from "react-icons/fa";
 
 const SearchNav = () => {
+  const current = new Date();
+
+  const time = current.toLocaleTimeString("en-UK", {
+    hour: "2-digit",
+    minute: "2-digit",
+    hour12: false,
+  });
+
   return (
-    <div className="bg-white h-20 flex justify-center items-center border-b-2 ml-80">
+    <div className="bg-white h-20 flex justify-center items-center border-b-2 ml-64">
       <div className="flex w-1/3 pl-12 items-center ">
         <input
           placeholder="Search for anythin here..."
@@ -32,7 +40,7 @@ const SearchNav = () => {
             className="text-yellow-500 text-xs
           "
           />
-          <p>22:45:04</p>
+          <p>{time}</p>
         </div>
       </div>
     </div>

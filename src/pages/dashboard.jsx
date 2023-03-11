@@ -11,7 +11,7 @@ import DashboardStates from "../commonents/dashboardStates";
 
 const Dashboard = () => {
   return (
-    <div className="flex flex-col ml-80">
+    <div className="flex flex-col ml-64">
       <div className="bg-blue-100 h-96 pb-24">
         <div className="flex justify-between px-24 pt-12">
           <div className="flex flex-col items-start">
