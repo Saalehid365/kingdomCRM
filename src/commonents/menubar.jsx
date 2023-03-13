@@ -4,6 +4,7 @@ import {
   FaBorderAll,
   FaCog,
   FaDoorClosed,
+  FaDoorOpen,
   FaEllipsisV,
   FaExclamationTriangle,
   FaHandsHelping,
@@ -14,9 +15,22 @@ import {
   FaUserCog,
   FaUsersCog,
 } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
+import { UserAuth } from "./context";
 
 const Menubar = () => {
+  const { user, logout } = UserAuth();
+  const navigate = useNavigate();
+  const handleLogout = async () => {
+    try {
+      await logout();
+      handleToggle();
+      navigate("/login");
+    } catch (e) {
+      console.log(e.message);
+    }
+  };
+
   const [toggle, setToggle] = useState(false);
 
   const handleToggle = () => {
@@ -37,8 +51,8 @@ const Menubar = () => {
           <p>A.N</p>
         </div>
         <div className=" flex flex-col items-start">
-          <p className="text-gray-300">Saaleh</p>
-          <p className="text-yellow-600 font-400">dishwasher</p>
+          <p className="text-green-400">Welcome back</p>
+          <p className="text-gray-300">{user && user.email}</p>
         </div>
         <div>
           <button onClick={handleToggle} className="hover:cursor-pointer w-8">
@@ -51,10 +65,20 @@ const Menubar = () => {
               <FaUserCog />
               <Link>Profile</Link>
             </div>
-            <div className="flex items-center w-full justify-evenly hover:text-red-400">
-              <FaDoorClosed />
-              <button>Logout</button>
-            </div>
+
+            {user ? (
+              <div className="flex items-center w-full justify-evenly hover:text-red-400">
+                <FaDoorClosed />
+                <button onClick={handleLogout}>Logout</button>
+              </div>
+            ) : (
+              <div className="flex items-center w-full justify-evenly hover:text-red-400">
+                <FaDoorOpen />
+                <Link to="/login" onClick={handleToggle}>
+                  Login
+                </Link>
+              </div>
+            )}
           </div>
         )}
       </div>

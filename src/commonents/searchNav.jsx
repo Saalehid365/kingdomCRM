@@ -15,9 +15,9 @@ const SearchNav = () => {
       <div className="flex w-1/3 pl-12 items-center ">
         <input
           placeholder="Search for anythin here..."
-          className="h-8 rounded-l-lg  bg-blue-100 text-base pl-4 w-2/3"
+          className="h-8 rounded-l-lg  bg-gray-200 text-base pl-4 w-2/3"
         ></input>
-        <FaSearch className="bg-blue-100 h-8 rounded-r-lg pr-2 w-6" />
+        <FaSearch className="bg-gray-200 h-8 rounded-r-lg pr-2 w-6" />
       </div>
       <div className="w-1/3 flex items-center justify-center ">
         <FaLanguage

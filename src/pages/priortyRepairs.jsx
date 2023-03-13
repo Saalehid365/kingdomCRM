@@ -6,7 +6,7 @@ import { FaVoteYea } from "react-icons/fa";
 const PriortyRepairs = () => {
   const [priList, setPriList] = useState([]);
   const priortys = collection(db, "repairs");
-  const priortyQuery = query(priortys, where("priorty", "==", 2));
+  const priortyQuery = query(priortys, where("priorty", "==", "1"));
 
   useEffect(() => {
     const getList = async () => {
@@ -20,14 +20,14 @@ const PriortyRepairs = () => {
   }, []);
 
   return (
-    <div className="bg-gray-200 h-screen ml-60 w-full">
-      <div className="h-48 flex items-center ml-40 pt-8 w-92 ">
+    <div className="bg-gray-200 h-screen ml-60 ">
+      <div className="h-48 flex items-center pl-40 pt-8 w-full ">
         <p className="text-3xl mr-4">Priorty Repairs</p>
         <p className="text-red-500 text-bold">({priList.length})</p>
       </div>
 
       <div className="appliance-container w-10/12 ml-24  ">
-        <table className="w-11/12 bg-gray-300">
+        <table className=" bg-gray-300 w-full">
           <tr className="h-16 text-sm">
             <th>Prod No.(SKU)</th>
             <th>Model No</th>
@@ -48,7 +48,7 @@ const PriortyRepairs = () => {
               <td>{priortyData.status}</td>
               <td>{priortyData.created}</td>
               <td className="flex justify-center items-center h-full pt-4 ">
-                <button className="flex flex-col justify-center items-center bg-green-500 rounded-md text-md h-12 p-2  ">
+                <button className="  flex flex-col justify-center items-center bg-green-500 rounded-md text-md h-12 p-2  ">
                   <FaVoteYea /> Click if completed
                 </button>
               </td>

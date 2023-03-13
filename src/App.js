@@ -11,35 +11,46 @@ import PriortyRepairs from "./pages/priortyRepairs";
 import Unrepairable from "./pages/unrepairable";
 import SearchNav from "./commonents/searchNav";
 import Addrepair from "./pages/addrepair";
-import Loginpage from "./pages/loginpage";
+import SignUp from "./commonents/signUp";
+import { AuthContextProvider } from "./commonents/context";
+import Login from "./commonents/login";
+import Protected from "./commonents/protectedroute";
 
 function App() {
   return (
     <div className="App">
       <Router>
-        <div className="flex ">
-          <Menubar className=" bottom-auto" />
-          <div className="flex flex-col w-full">
-            <SearchNav />
-            <Routes>
-              <Route path="/" element={<Loginpage />} />
+        <AuthContextProvider>
+          <div className="flex ">
+            <Menubar className=" bottom-auto" />
+            <div className="flex flex-col w-full">
+              <SearchNav />
+              <Routes>
+                <Route path="/login" element={<Login />} />
+                <Route path="signup" element={<SignUp />} />
+                <Route element={<Protected />}>
+                  <Route path="dashboard" element={<Dashboard />} />
+                  <Route path="currentrepairs" element={<CurrentRepairs />} />
 
-              <Route path="dashboard" element={<Dashboard />} />
-              <Route path="currentrepairs" element={<CurrentRepairs />} />
+                  <Route
+                    path="currentrepairs/addrepair"
+                    element={<Addrepair />}
+                  />
 
-              <Route path="currentrepairs/addrepair" element={<Addrepair />} />
-              <Route
-                path="/contactmanagement"
-                element={<ContactManagement />}
-              />
-              <Route path="chatwith" element={<ChatWith />} />
-              <Route path="engineers" element={<Engineers />} />
-              <Route path="gettechhelp" element={<GetTechHelp />} />
-              <Route path="priortyrepairs" element={<PriortyRepairs />} />
-              <Route path="unrepairable" element={<Unrepairable />} />
-            </Routes>
+                  <Route
+                    path="/contactmanagement"
+                    element={<ContactManagement />}
+                  />
+                  <Route path="chatwithengineers" element={<ChatWith />} />
+                  <Route path="engineers" element={<Engineers />} />
+                  <Route path="gethelp" element={<GetTechHelp />} />
+                  <Route path="priortyrepairs" element={<PriortyRepairs />} />
+                  <Route path="unrepairable" element={<Unrepairable />} />
+                </Route>
+              </Routes>
+            </div>
           </div>
-        </div>
+        </AuthContextProvider>
       </Router>
     </div>
   );

@@ -1,15 +1,18 @@
 import { initializeApp } from "firebase/app";
 import { getFirestore } from "@firebase/firestore";
+import { getAuth } from "firebase/auth";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyDVKDif-mjduvPouWeUO2fLZxmzKZ9y-xI",
-  authDomain: "kingdomcrm-77669.firebaseapp.com",
-  projectId: "kingdomcrm-77669",
-  storageBucket: "kingdomcrm-77669.appspot.com",
-  messagingSenderId: "291773471837",
-  appId: "1:291773471837:web:0f2cb1dfd4d9bfcd4641b4",
+  apiKey: process.env.REACT_APP_API_KEY,
+  authDomain: process.env.REACT_APP_AUTH_DOMAIN,
+  projectId: process.env.REACT_APP_PROJECT_ID,
+  storageBucket: process.env.REACT_APP_STORAGE_BUCKET,
+  messagingSenderId: process.env.REACT_APP_MESSAGING_SENDER_ID,
+  appId: process.env.REACT_APP_API_ID,
 };
 
 const app = initializeApp(firebaseConfig);
 
 export const db = getFirestore(app);
+
+export const auth = getAuth(app);

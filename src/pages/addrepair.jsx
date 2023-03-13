@@ -38,17 +38,6 @@ const Addrepair = () => {
     });
   };
 
-  const engineers = [
-    { label: "Saaleh", value: "saaleh" },
-    { label: "Amjad", value: "amjad" },
-    { label: "Naaeem", value: "Naaeem" },
-    { label: "Reece", value: "Reece" },
-  ];
-
-  const handleSelect = (e) => {
-    setCatergory(e.target.value);
-  };
-
   return (
     <div className="ml-96 mr-14 h-screen pt-4 ">
       <form className="h-screen flex justify-evenly mt-20">
@@ -72,10 +61,12 @@ const Addrepair = () => {
             <label className="mr-4">Manufacturer</label>
             <select
               onChange={(e) => {
-                setBrand(e.target.value);
+                const selectedBrand = e.target.value;
+                setBrand(selectedBrand);
               }}
               className="w-5/6 h-10 border-2 border-gray-300 pl-2 rounded-md"
             >
+              <option value="">-</option>
               <option value="AEG">AEG</option>
               <option value="Zanussi">Zanuss</option>
               <option value="Electrolux">Electrolux</option>
@@ -157,10 +148,12 @@ const Addrepair = () => {
             <label className="mr-4">Status</label>
             <select
               onChange={(e) => {
-                setStatus(e.target.value);
+                const selectedStatus = e.target.value;
+                setStatus(selectedStatus);
               }}
               className="w-5/6 h-10 border-2 border-gray-300 pl-2 rounded-md"
             >
+              <option value="">-</option>
               <option value="Queue">Queued</option>
               <option value="Repair">Repair</option>
               <option value="Scrap">Scrap</option>
@@ -186,27 +179,47 @@ const Addrepair = () => {
           "
           >
             <label>Catergory</label>
-            <input
+            <select
               onChange={(e) => {
-                setCatergory(e.target.value);
+                const selectedCatergory = e.target.value;
+                setCatergory(selectedCatergory);
               }}
-              placeholder="Enter receipt no..."
-              className="border-2 border-gray-300 w-5/6 h-10 pl-2 rounded-md"
-            ></input>
-            <p className="text-sm text-red-500">
-              e.g Cooking, Washing machine, Hob...
-            </p>
+              className="w-5/6 h-10 border-2 border-gray-300 pl-2 rounded-md"
+            >
+              <option value="">-</option>
+              <option value="Washing Machine">Washing Machine"</option>
+              <option value="Washer Dryer">Washer Dryer</option>
+              <option value="Dishwasher">Dishwasher</option>
+              <option value="Refrigeration">Refrigeration</option>
+              <option value="Single Oven">Single Oven</option>
+              <option value="Double Oven">Double Oven</option>
+              <option value="Hobs">Hobs</option>
+              <option value="Microwaves">Microwaves</option>
+              <option value="Hoods">Hoods</option>
+              <option value="Warmer Drawer">Warmer Drawer</option>
+            </select>
           </div>
           <div
             className="flex flex-col justify-between w-full items-start mt-4
           "
           >
             <label>Engineer</label>
-            <selet onChange={handleSubmit}>
-              {engineers.map((engineer) => (
-                <option value={engineer.value}>{engineer.value} </option>
-              ))}
-            </selet>
+            <select
+              onChange={(e) => {
+                const selectedEngineer = e.target.value;
+                setEngineer(selectedEngineer);
+              }}
+              className="w-5/6 h-10 border-2 border-gray-300 pl-2 rounded-md"
+            >
+              <option value="">-</option>
+              <option value="Saaleh">Saaleh</option>
+              <option value="Naeem">Naeem</option>
+              <option value="Shaheed">Shaheed</option>
+              <option value="Reece">Reece</option>
+              <option value="Amjad">Amjad</option>
+              <option value="Aadil">Aadil</option>
+              <option value="Ryan">Ryan</option>
+            </select>{" "}
           </div>
 
           <div className="flex flex-col justify-between w-full items-start mt-4">
