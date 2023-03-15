@@ -11,7 +11,10 @@ const DashboardSm = () => {
             <FaRegClipboard />
             <p className="pl-2">Dashboard</p>
           </div>
-          <Link className="bg-white flex h-6 items-center p-2">
+          <Link
+            to="/currentrepairs/addrepair"
+            className="bg-white flex h-6 items-center p-2"
+          >
             <FaPlus /> Add Repair
           </Link>
         </div>

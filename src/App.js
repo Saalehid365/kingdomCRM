@@ -36,6 +36,10 @@ function App() {
                     path="currentrepairs/addrepair"
                     element={<Addrepair />}
                   />
+                  <Route
+                    path="dashbaord/currentrepairs/addrepair"
+                    element={<Addrepair />}
+                  />
 
                   <Route
                     path="/contactmanagement"
