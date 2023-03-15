@@ -4,7 +4,7 @@ import { UserAuth } from "./context";
 const Protected = () => {
   const { user } = UserAuth();
 
-  return user ? <Outlet /> : <Navigate to="/login" />;
+  return user ? <Outlet /> : <Navigate to="/" />;
 };
 
 export default Protected;

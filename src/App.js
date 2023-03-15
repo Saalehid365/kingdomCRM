@@ -26,7 +26,7 @@ function App() {
             <div className="flex flex-col w-full">
               <SearchNav />
               <Routes>
-                <Route path="/login" element={<Login />} />
+                <Route path="/" element={<Login />} />
                 <Route path="signup" element={<SignUp />} />
                 <Route element={<Protected />}>
                   <Route path="dashboard" element={<Dashboard />} />

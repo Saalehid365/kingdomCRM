@@ -25,7 +25,7 @@ const Menubar = () => {
     try {
       await logout();
       handleToggle();
-      navigate("/login");
+      navigate("/");
     } catch (e) {
       console.log(e.message);
     }
@@ -38,22 +38,27 @@ const Menubar = () => {
   };
 
   return (
-    <div className="w-1/6 h-full fixed bg-slate-600  ">
-      <div className="flex items-center justify-evenly bg-gray-800 text-white h-20">
-        <FaTools />
+    <div className="w-1/6 h-full fixed bg-slate-600 sm:w-screen sm:h-2 ">
+      <div
+        className="flex items-center justify-evenly bg-gray-800 text-white h-20 
+      sm:items-start sm:justify-between sm:text-left sm:text-1xl sm:pl-4 sm:h-14 "
+      >
+        <FaTools className="sm:hidden" />
         <div>
           <p>Kingdom Appliances</p>
           <p>Workshop</p>
         </div>
       </div>
-      <div className="flex h-1/6 items-center justify-evenly">
+      <div className="flex h-1/6 items-center justify-evenly sm:hidden">
         <div className="h-12 w-12 bg-red-300 rounded-lg flex justify-center items-center text-gray-500">
           <p>A.N</p>
         </div>
-        <div className=" flex flex-col items-start">
-          <p className="text-green-400">Welcome back</p>
-          <p className="text-gray-300">{user && user.email}</p>
-        </div>
+        {user && (
+          <div className=" flex flex-col items-start">
+            <p className="text-green-400">Welcome back</p>
+            <p className="text-gray-300">{user && user.email}</p>
+          </div>
+        )}
         <div>
           <button onClick={handleToggle} className="hover:cursor-pointer w-8">
             <FaEllipsisV className="text-white" />
@@ -74,7 +79,7 @@ const Menubar = () => {
             ) : (
               <div className="flex items-center w-full justify-evenly hover:text-red-400">
                 <FaDoorOpen />
-                <Link to="/login" onClick={handleToggle}>
+                <Link to="/" onClick={handleToggle}>
                   Login
                 </Link>
               </div>
@@ -82,7 +87,10 @@ const Menubar = () => {
           </div>
         )}
       </div>
-      <div className="flex flex-col justify-evenly items-start h-1/3 border-b-2 border-red text-gray-200 ">
+      <div
+        className="flex flex-col justify-evenly items-start h-1/3 border-b-2 border-red text-gray-200 
+                        sm:hidden"
+      >
         <Link
           to="dashboard"
           className=" h-16 hover:bg-cyan-600 flex items-center  w-full text-lg"
@@ -119,7 +127,7 @@ const Menubar = () => {
           Returns
         </Link>
       </div>
-      <div className="flex flex-col border-b-2 h-1/3 justify-evenly text-white ">
+      <div className="flex flex-col border-b-2 h-1/3 justify-evenly text-white sm:hidden">
         <Link
           to="contactmanagement"
           className=" h-16 hover:bg-cyan-600 flex items-center  w-full text-lg"
@@ -150,7 +158,7 @@ const Menubar = () => {
           Get tech help
         </Link>
       </div>
-      <div className="bg-gray-800 h-8 flex flex-col justify-end mt-12">
+      <div className="bg-gray-800 h-8 flex flex-col justify-end mt-12 sm:hidden">
         <p className="text-gray-500 text-sm">
           Powered by Anthony ID365 &#169; 2023
         </p>

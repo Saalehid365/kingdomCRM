@@ -11,7 +11,7 @@ const SearchNav = () => {
   });
 
   return (
-    <div className="bg-white h-20 flex justify-center items-center border-b-2 ml-64">
+    <div className="bg-white h-20 flex justify-center items-center border-b-2 ml-64 sm:hidden">
       <div className="flex w-1/3 pl-12 items-center ">
         <input
           placeholder="Search for anythin here..."

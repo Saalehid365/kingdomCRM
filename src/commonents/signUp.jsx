@@ -57,7 +57,7 @@ const SignUp = () => {
           <div>
             <p className="text-white mt-4">
               already have an account
-              <Link to="/login" className="underline text-blue-500 ml-2">
+              <Link to="/" className="underline text-blue-500 ml-2">
                 Click here
               </Link>
             </p>

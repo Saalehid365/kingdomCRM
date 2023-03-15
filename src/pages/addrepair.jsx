@@ -39,10 +39,13 @@ const Addrepair = () => {
   };
 
   return (
-    <div className="ml-96 mr-14 h-screen pt-4 ">
-      <form className="h-screen flex justify-evenly mt-20">
-        <div className="w-2/4 h-screen flex flex-col items-start justify-start">
-          <div className="flex items-start justify-start flex-col w-5/6 ">
+    <div className="ml-96 mr-14 h-screen pt-4 sm:ml-0 sm:px-4 sm:mr-0 ">
+      <form className="h-screen flex justify-evenly mt-20 sm:flex-col ">
+        <div className="w-2/4 h-screen flex flex-col items-start justify-start sm:h-auto sm:mt-96 sm:w-full sm:border sm:pb-4">
+          <div className="hidden sm:bg-red-500 sm:w-full sm:h-12 sm:items-center sm:flex sm:justify-start sm:pl-4">
+            <p>Add Repair</p>
+          </div>
+          <div className="flex items-start justify-start flex-col w-full sm:h-12 sm:w-60 sm:pl-4 sm:pt-2">
             <label className="">Job Number</label>
 
             <input
@@ -50,14 +53,14 @@ const Addrepair = () => {
                 setJobNumber(e.target.value);
               }}
               placeholder="A119643 or U46781..."
-              className="border-2 border-gray-300 w-full h-10 pl-2 rounded-md"
+              className="border-2 border-gray-300 w-5/6 h-10 pl-2 rounded-md sm:w-full"
             ></input>
-            <p className="text-sm text-red-500">
+            <p className="text-sm text-red-500 sm:hidden">
               Do not exceed 7 characters when entering job number
             </p>
           </div>
 
-          <div className="flex flex-col justify-between w-full items-start mt-4">
+          <div className="flex flex-col justify-between w-full items-start mt-4 sm:h-12 sm:w-72 sm:pl-4">
             <label className="mr-4">Manufacturer</label>
             <select
               onChange={(e) => {
@@ -76,7 +79,7 @@ const Addrepair = () => {
             </select>
           </div>
           <div
-            className="flex flex-col justify-between w-full items-start mt-4
+            className="flex flex-col justify-between w-full items-start mt-4 sm:h-12 sm:w-72 sm:pl-4
           "
           >
             <label>Model No</label>
@@ -89,7 +92,7 @@ const Addrepair = () => {
             ></input>
           </div>
 
-          <div className="flex flex-col justify-between w-full items-start mt-4">
+          <div className="flex flex-col justify-between w-full items-start mt-4 sm:h-12 sm:w-72 sm:pl-4">
             <label>Serial No</label>
             <input
               onChange={(e) => {
@@ -99,7 +102,7 @@ const Addrepair = () => {
               className="border-2 border-gray-300 w-5/6 h-10 pl-2 rounded-md"
             ></input>
           </div>
-          <div className="flex flex-col justify-between w-full items-start mt-4">
+          <div className="flex flex-col justify-between w-full items-start mt-4 sm:h-12 sm:w-72 sm:pl-4">
             <label>Priorty </label>
             <input
               onChange={(e) => {
@@ -109,16 +112,16 @@ const Addrepair = () => {
               className="border-2 border-gray-300 w-5/6 h-10 pl-2 rounded-md"
             ></input>
             <div className="text-sm w-72 flex mt-2">
-              <p className="text-white mr-4 bg-red-500 h-6 rounded w-full text-xs flex items-center justify-center">
+              <p className="text-white mr-4 bg-red-500 h-6 rounded w-full text-xs flex items-center justify-center sm:w-1/3">
                 High = 1
               </p>
 
-              <p className="text-white mr-4 bg-green-500 rounded w-full text-xs flex items-center justify-center">
+              <p className="text-white mr-4 bg-green-500 rounded w-full text-xs flex items-center justify-center sm:w-1/3">
                 Low = 2
               </p>
             </div>
           </div>
-          <div className="flex items-start flex-col w-5/6 mt-6 ">
+          <div className="flex items-start flex-col w-5/6 mt-6 sm:h-12 sm:w-60 sm:pt-4 sm:pl-4">
             <label className="  ">Location</label>
             <input
               onChange={(e) => {
@@ -127,7 +130,7 @@ const Addrepair = () => {
               placeholder="Enter Location..."
               className="border-2 border-gray-300 w-full h-10 pl-2 rounded-md"
             ></input>
-            <div className="flex w-full justify-evenly text-sm">
+            <div className="flex w-full justify-evenly text-sm sm:hidden">
               <p>
                 Large items{" "}
                 <span>
@@ -143,8 +146,8 @@ const Addrepair = () => {
             </div>
           </div>
         </div>
-        <div className="w-2/4 h-3/4 flex flex-col items-start ">
-          <div className="flex flex-col justify-between w-full items-start">
+        <div className="w-2/4 h-3/4 flex flex-col items-start sm:w-72 sm:h-auto sm:border sm:pt-4">
+          <div className="flex flex-col justify-between w-full items-start sm:h-12 sm:w-72 sm:pl-4">
             <label className="mr-4">Status</label>
             <select
               onChange={(e) => {
@@ -162,7 +165,7 @@ const Addrepair = () => {
             </select>
           </div>
           <div
-            className="flex flex-col justify-between w-full items-start mt-4
+            className="flex flex-col justify-between w-full items-start mt-4 sm:h-12 sm:w-72 sm:pl-4
           "
           >
             <label>Receipt No</label>
@@ -175,7 +178,7 @@ const Addrepair = () => {
             ></input>
           </div>
           <div
-            className="flex flex-col justify-between w-full items-start mt-4
+            className="flex flex-col justify-between w-full items-start mt-4 sm:h-12 sm:w-72 sm:pl-4
           "
           >
             <label>Catergory</label>
@@ -200,7 +203,7 @@ const Addrepair = () => {
             </select>
           </div>
           <div
-            className="flex flex-col justify-between w-full items-start mt-4
+            className="flex flex-col justify-between w-full items-start mt-4 sm:h-12 sm:w-72 sm:pl-4
           "
           >
             <label>Engineer</label>
@@ -222,7 +225,7 @@ const Addrepair = () => {
             </select>{" "}
           </div>
 
-          <div className="flex flex-col justify-between w-full items-start mt-4">
+          <div className="flex flex-col justify-between w-full items-start mt-4 sm:h-124 sm:pl-4">
             <label>Comments</label>
             <input
               onChange={(e) => {
@@ -233,7 +236,7 @@ const Addrepair = () => {
             ></input>
           </div>
 
-          <div className="pt-12">
+          <div className="pt-12 sm:pl-12">
             <button
               className="bg-red-600 h-10 w-40 rounded-md flex items-center text-white justify-evenly"
               type="submit"

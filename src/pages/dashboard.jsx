@@ -7,23 +7,26 @@ import {
   FaThumbsUp,
 } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import DashboardSm from "../commonents/dashboardSm";
 import DashboardStates from "../commonents/dashboardStates";
 
 const Dashboard = () => {
   return (
-    <div className="flex flex-col ml-64">
-      <div className="bg-blue-100 h-96 pb-24">
+    <div className="bg-blue-100 flex flex-col ml-64 sm:ml-0 sm:mt-12 sm:h-screen">
+      <div className=" h-96 pb-24 sm:hidden">
         <div className="flex justify-between px-24 pt-12">
           <div className="flex flex-col items-start">
-            <h2 className="text-3xl text-bold">Dashboard</h2>
-            <p className="pt-4 ">A quick data overview of the inventory.</p>
+            <h2 className="text-3xl text-bold sm:bg-red-500">Dashboard</h2>
+            <p className="pt-4 sm:hidden">
+              A quick data overview of the inventory.
+            </p>
           </div>
-          <button className="flex items-center border border-black rounded-lg w-44 justify-center h-14">
+          <button className="flex items-center border border-black rounded-lg w-44 justify-center h-14 sm:hidden">
             <p>Download Report</p>
             <FaAngleDown />
           </button>
         </div>
-        <div className="pt-8 flex justify-around px-24">
+        <div className="pt-8 flex justify-around px-24 sm:hidden">
           <div className="h-40 w-80 rounded-lg flex flex-col border border-green-600 items-center justify-between overflow-hidden">
             <div className="flex flex-col items-center h-full justify-evenly py-2">
               <FaThumbsUp className="text-4xl text-green-500" />
@@ -60,6 +63,7 @@ const Dashboard = () => {
         </div>
       </div>
       <DashboardStates />
+      <DashboardSm />
     </div>
   );
 };
