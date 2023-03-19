@@ -6,7 +6,6 @@ import {
   FaPenFancy,
   FaPlus,
   FaRegCheckCircle,
-  FaSearch,
   FaToolbox,
 } from "react-icons/fa";
 import { Link } from "react-router-dom";

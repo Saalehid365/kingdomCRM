@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { FaPlusCircle, FaUserCircle } from "react-icons/fa";
+import { FaPlusCircle } from "react-icons/fa";
 import { addDoc, collection, serverTimestamp } from "firebase/firestore";
 import { db } from "../firebase-config";
 import DashboardSm from "../commonents/dashboardSm";

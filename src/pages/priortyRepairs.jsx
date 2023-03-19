@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { collection, query, where, getDocs, orderBy } from "firebase/firestore";
+import { collection, query, where, getDocs } from "firebase/firestore";
 import { db } from "../firebase-config";
-import { FaSignInAlt, FaVoteYea } from "react-icons/fa";
+import { FaSignInAlt } from "react-icons/fa";
 
 const PriortyRepairs = () => {
   const [priList, setPriList] = useState([]);
