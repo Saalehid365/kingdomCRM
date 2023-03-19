@@ -113,18 +113,11 @@ const Menubar = () => {
           Priorty Repairs
         </Link>
         <Link
-          to="dashboard"
+          to="unrepairable"
           className=" h-16 hover:bg-cyan-600 flex items-center  w-full text-lg"
         >
           <FaTrash className="ml-12 mr-6" />
           Unrepairable
-        </Link>
-        <Link
-          to="dashboard"
-          className=" h-16 hover:bg-cyan-600 flex items-center  w-full text-lg"
-        >
-          <FaHouseDamage className="ml-12 mr-6" />
-          Returns
         </Link>
       </div>
       <div className="flex flex-col border-b-2 h-1/3 justify-evenly text-white sm:hidden">

@@ -5,8 +5,8 @@ import { Link } from "react-router-dom";
 const DashboardSm = () => {
   return (
     <div className="hidden sm:flex sm:justify-center sm:mt-12">
-      <div className=" sm:w-72 sm:bg-gray-200 text-xs border border-gray-300  ">
-        <div className="bg-red-500 flex h-12 justify-between items-center px-4">
+      <div className=" sm:w-96 sm:bg-gray-200 text-xs border border-gray-300  ">
+        <div className="bg-red-500 flex h-16 justify-between items-center px-4">
           <div className="flex text-gray-200">
             <FaRegClipboard />
             <p className="pl-2">Dashboard</p>
@@ -18,10 +18,13 @@ const DashboardSm = () => {
             <FaPlus /> Add Repair
           </Link>
         </div>
-        <div className=" bg-white border-b-2 flex h-12 justify-between items-center px-4">
-          <div className="flex">
+        <Link
+          to="/currentrepairs"
+          className=" bg-white border-b-2 flex h-16 justify-between items-center px-4"
+        >
+          <div className="flex items-center">
             <FaRegClipboard />
-            <p className="text-gray-500 pl-2">Current Repairs</p>
+            <p className="text-gray-500 pl-2 text-lg">Current Repairs</p>
           </div>
           <div
             className="bg-yellow-400 rounded-lg w-max p-2 text-white
@@ -29,35 +32,41 @@ const DashboardSm = () => {
           >
             <p>5</p>
           </div>
-        </div>
-        <div className="bg-white border-b-2 flex h-12 justify-between items-center px-4">
-          <div className="flex">
+        </Link>
+        <Link
+          to="/priortyrepairs"
+          className="bg-white border-b-2 flex h-16 justify-between items-center px-4"
+        >
+          <div className="flex items-center">
             <FaRegClipboard />
-            <p className="text-gray-500 pl-2">Priorty Repairs</p>
+            <p className="text-gray-500 pl-2 text-lg">Priorty Repairs</p>
+          </div>
+          <div
+            className="bg-red-500 rounded-lg w-max p-2 text-white
+          "
+          >
+            <p>10</p>
+          </div>
+        </Link>
+        <Link
+          to=""
+          className="bg-white border-b-2 flex h-16 justify-between items-center px-4"
+        >
+          <div className="flex items-center">
+            <FaRegClipboard />
+            <p className="text-gray-500 pl-2 text-lg">Completed Repairs</p>
           </div>
           <div
             className="bg-blue-200 rounded-lg w-max p-2 text-white
           "
           >
-            <p>10</p>
-          </div>
-        </div>
-        <div className="bg-white border-b-2 flex h-12 justify-between items-center px-4">
-          <div className="flex">
-            <FaRegClipboard />
-            <p className="text-gray-500 pl-2">Completed Repairs</p>
-          </div>
-          <div
-            className="bg-red-400 rounded-lg w-max p-2 text-white
-          "
-          >
             <p>345</p>
           </div>
-        </div>
-        <div className="bg-white border-b-2 flex h-12 justify-between items-center px-4">
-          <div className="flex">
+        </Link>
+        <div className="bg-white border-b-2 flex h-16 justify-between items-center px-4">
+          <div className="flex items-center">
             <FaRegClipboard />
-            <p className="text-gray-500 pl-2">Total Appliances</p>
+            <p className="text-gray-500 pl-2 text-lg">Total Appliances</p>
           </div>
           <div
             className="bg-green-400 rounded-lg w-max p-2 text-white
@@ -66,10 +75,10 @@ const DashboardSm = () => {
             <p>14545</p>
           </div>
         </div>
-        <div className="bg-white border-b-2 flex h-12 justify-between items-center px-4">
-          <div className="flex">
+        <div className="bg-white border-b-2 flex h-16 justify-between items-center px-4">
+          <div className="flex items-center">
             <FaRegClipboard />
-            <p className="text-gray-500 pl-2">Total Parts Ordered</p>
+            <p className="text-gray-500 pl-2 text-lg">Total Parts Ordered</p>
           </div>
           <div
             className="bg-yellow-400 rounded-lg w-max p-2 text-white
@@ -78,10 +87,10 @@ const DashboardSm = () => {
             <p>345</p>
           </div>
         </div>
-        <div className="bg-white border-b-2 flex h-12 justify-between items-center px-4">
-          <div className="flex">
+        <div className="bg-white border-b-2 flex h-16 justify-between items-center px-4">
+          <div className="flex items-center">
             <FaRegClipboard />
-            <p className="text-gray-500 pl-2">Scrapped Items</p>
+            <p className="text-gray-500 pl-2 text-lg">Scrapped Items</p>
           </div>
           <div
             className="bg-red-600 rounded-lg w-max p-2 text-white
@@ -90,10 +99,10 @@ const DashboardSm = () => {
             <p>127</p>
           </div>
         </div>
-        <div className="bg-white border-b-2 flex h-12 justify-between items-center px-4">
-          <div className="flex">
+        <div className="bg-white border-b-2 flex h-16 justify-between items-center px-4">
+          <div className="flex items-center">
             <FaRegClipboard />
-            <p className="text-gray-500 pl-2">Returned To Customer</p>
+            <p className="text-gray-500 pl-2 text-lg">Returned To Customer</p>
           </div>
           <div
             className="bg-green-800 rounded-lg w-max p-2 text-white

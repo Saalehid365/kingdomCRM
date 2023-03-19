@@ -12,6 +12,7 @@ import {
 import { Link } from "react-router-dom";
 import { collection, getDocs } from "firebase/firestore";
 import { db } from "../firebase-config";
+import DashboardSm from "../commonents/dashboardSm";
 
 const CurrentRepairs = () => {
   const [toggle, setToggle] = useState(false);
@@ -33,8 +34,9 @@ const CurrentRepairs = () => {
   }, []);
 
   return (
-    <div className="bg-gray-200 h-full ml-64 ">
-      <div className=" flex justify-around">
+    <div className="bg-gray-200 h-full   ml-64 sm:max-w-lg sm:pt-24 sm:ml-0">
+      <DashboardSm />
+      <div className=" flex justify-around sm:hidden">
         <div className="title w-1/3  h-40 mt-12">
           <div className="flex flex-col items-start justify-evenly h-full">
             <div className="flex items-center ">
@@ -50,7 +52,8 @@ const CurrentRepairs = () => {
             </div>
           </div>
         </div>
-        <div className="flex flex-col items-end w-1/3 h-40 mt-16 justify-evenly">
+
+        <div className="flex flex-col items-end w-1/3 h-40 mt-16 justify-evenly ">
           <button className="flex bg-red-500 hover:bg-red-400 h-10 rounded-md w-40 justify-center items-center text-white">
             <FaPlus className="mr-4" />
             <Link to="addrepair">Add new repair</Link>
@@ -87,69 +90,74 @@ const CurrentRepairs = () => {
           </div>
         </div>
       </div>
-      <div className="appliance-container m-12 ">
+      <div className="sm:mt-6">
+        <p className="sm">Current Repairs</p>
+      </div>
+      <div className="appliance-container m-12 sm:ml-0 sm:w-screen sm:p-4 ">
         <table className="w-full bg-gray-300 ">
-          <tr className="h-16 text-sm">
+          <tr className="h-16 text-sm sm:h-4">
             <th>Prod No.(SKU)</th>
             <th>Model No</th>
 
-            <th>Category</th>
-            <th>Location</th>
+            <th className="sm:hidden">Category</th>
+            <th className="sm:hidden">Location</th>
             <th>Priorty</th>
             <th>Engineer</th>
-            <th>Status</th>
-            <th>Created</th>
-            <th>Edit</th>
+            <th className="sm:hidden flex justify-center items-center h-16">
+              <p>Status</p>
+              <FaInfoCircle className="ml-2 text-1xl" onClick={handleModal} />
+            </th>
+            <th className="sm:hidden">Created</th>
+            <th className="sm:hidden">Edit</th>
           </tr>
           {repairs?.map((listing, listingIndex) => (
             <tr
               key={listingIndex}
-              className="h-18 bg-gray-100 border-gray-300 border-2 text-sm uppercase"
+              className="h-12 bg-gray-100 border-gray-300 border-2 text-xs uppercase"
             >
               <td className="uppercase">{listing.jobNumber}</td>
               <td className="uppercase">{listing.model}</td>
-              <td>{listing.catergory}</td>
-              <td className="uppercase">{listing.location}</td>
+              <td className="sm:hidden">{listing.catergory}</td>
+              <td className="uppercase sm:hidden">{listing.location}</td>
 
-              <td className="uppercase flex justify-center items-center h-24">
-                {listing.priorty === 1 ? (
-                  <p className="w-36 bg-yellow-100 rounded-xl h-8 border-2 flex items-center justify-center  text-xs">
-                    low priorty
+              <td className="uppercase flex justify-center items-center h-14">
+                {listing.priorty === "0" ? (
+                  <p className="w-32 bg-yellow-100 rounded-xl h-8 border-2 flex items-center justify-center  text-xs sm:w-24">
+                    no priorty
                   </p>
                 ) : (
-                  <p className="w-36 bg-red-400 rounded-xl h-8 border-2 flex items-center justify-center font-bold text-xs">
+                  <p className="w-28 bg-red-400 rounded-xl h-8 border-2 flex items-center justify-center font-bold text-xs sm:w-20 sm:h-12 sm:text-xs">
                     high priorty
                   </p>
                 )}
               </td>
 
-              <td>{listing.engineer}</td>
-              <td className="">
+              <td className="sm:hidden">{listing.engineer}</td>
+              <td className="sm:hidden">
                 {listing.status === "Completed" ? (
                   <div className="flex items-center justify-center relative">
-                    <FaRegCheckCircle className="text-green-500 mr-4" />
+                    <FaRegCheckCircle className="text-green-500 mr-2" />
                     <p>{listing.status}</p>
-                    <FaInfoCircle className="ml-2" onClick={handleModal} />
                     {toggle && (
-                      <div className=" absolute rounded-xl p-8 h-24 text-xs bg-slate-400 w-72 flex flex-col justify-evenly right-10">
+                      <div className=" absolute rounded-xl p-2 h-20 text-xs bg-slate-400 w-96 flex flex-col justify-evenly right-10">
                         <div
                           onClick={handleModal}
                           className=" bg-red-700 rounded-xl w-6 h-6 text-white flex text-base items-center justify-center absolute -right-1 -top-2 hover:cursor-pointer"
                         >
                           x
                         </div>
-                        <div className=" items-start">
-                          <p className="text-red-600 font-bold underline">
+                        <div className=" flex  items-start">
+                          <p className="text-red-600 font-bold underline flex mr-2">
                             Repair:
                           </p>
-                          <p>Item is currently being repaired </p>
+                          <p>being repaired </p>
                         </div>
-                        <div className="">
+                        <div className="flex mr-2">
                           <p className="text-green-600 font-bold underline">
                             Completed:
                           </p>
-                          <p>
-                            Item is completed and can be sent back to customer
+                          <p className="text-start">
+                            can be sent back to customer
                           </p>
                         </div>
                       </div>
@@ -159,21 +167,17 @@ const CurrentRepairs = () => {
                   <div className="flex items-center justify-center">
                     <FaToolbox className="text-red-500 mr-4" />
                     <p>{listing.status}</p>
-                    <FaInfoCircle
-                      className="ml-2 cursor-pointer"
-                      onClick={handleModal}
-                    />
                   </div>
                 )}
               </td>
-              <td>{listing.status}</td>
+              <td className="sm:hidden">{listing.status}</td>
               <td>
                 <div className="flex flex-col justify-evenly items-center">
-                  <button className=" rounded-md mb-2 bg-green-400 text-white text-sm w-16 h-6 flex items-center justify-evenly mt-2">
+                  <button className=" rounded-md mb-2 bg-green-400 text-white text-sm w-16 h-4 flex items-center justify-evenly mt-2">
                     <FaPenFancy />
                     Edit
                   </button>
-                  <button className="rounded-md mb-2 bg-blue-400 text-white text-sm w-16 h-6 flex items-center justify-evenly">
+                  <button className="rounded-md mb-2 bg-blue-400 text-white text-sm w-16 h-4 flex items-center justify-evenly">
                     Images
                   </button>
                 </div>
